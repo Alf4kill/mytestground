@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         // Usando a fonte Inter conforme recomendado
-        sans: ['Inter', 'sans-serif'],
+        sans: ['DIN 1451', 'sans-serif'],
       },
       // Cores personalizadas ou outras extensões de tema podem vir aqui
     },

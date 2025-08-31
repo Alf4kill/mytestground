@@ -35,7 +35,7 @@ export default function HomePage() {
     return (
       <div className="text-center py-20">
         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-700 mx-auto mb-4"></div>
-        <p className="text-lg text-gray-700">Carregando produtos...</p>
+        <p className="text-lg text-gray-700 uppercase">Carregando produtos...</p>
       </div>
     );
   }
@@ -50,7 +50,7 @@ export default function HomePage() {
 
   return (
     <section className="py-8">
-      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-10">Nossos Produtos</h2>
+      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-10 uppercase">Nossos Produtos</h2>
 
       {/* Seletor de Categorias */}
       <div className="mb-8 flex flex-wrap justify-center gap-3">
@@ -58,10 +58,10 @@ export default function HomePage() {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`px-5 py-2 rounded-full font-medium transition-colors duration-200
+            className={`px-5 py-2 rounded-full font-medium transition-colors duration-200 uppercase
               ${selectedCategory === category
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-blue-600 text-white shadow-md uppercase'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300 uppercase'
               }
               focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
             aria-pressed={selectedCategory === category}
@@ -72,7 +72,7 @@ export default function HomePage() {
       </div>
 
       {products.length === 0 ? (
-        <div className="text-center py-10 text-gray-600 text-xl">
+        <div className="text-center py-10 text-gray-600 text-xl uppercase">
           Nenhum produto encontrado nesta categoria.
         </div>
       ) : (

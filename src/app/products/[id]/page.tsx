@@ -46,14 +46,14 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     return (
       <div className="text-center py-20">
         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-700 mx-auto mb-4"></div>
-        <p className="text-lg text-gray-700">Carregando detalhes do produto...</p>
+        <p className="text-lg text-gray-700 uppercase">Carregando detalhes do produto...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="text-center py-20 text-red-600 text-xl font-semibold">
+      <div className="text-center py-20 text-red-600 text-xl font-semibold uppercase">
         <p>{error}</p>
       </div>
     );
@@ -84,16 +84,16 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         {/* Detalhes do produto */}
         <div className="flex-grow flex flex-col justify-between">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">{product.name}</h2>
-            <p className="text-gray-500 text-sm mb-2">Categoria: {product.category}</p> {/* Exibe a categoria */}
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">{product.description}</p>
-            <p className="text-blue-700 text-2xl sm:text-3xl font-extrabold mb-6">R$ {product.price.toFixed(2)}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 uppercase">{product.name}</h2>
+            <p className="text-gray-500 text-sm mb-2 uppercase">Categoria: {product.category}</p> {/* Exibe a categoria */}
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 uppercase">{product.description}</p>
+            <p className="text-blue-700 text-2xl sm:text-3xl font-extrabold mb-6 uppercase">R$ {product.price.toFixed(2)}</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             {/* Botão de adicionar ao carrinho */}
             <button
-              className="w-full sm:w-auto px-8 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors duration-200"
+              className="w-full sm:w-auto px-8 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md uppercase hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors duration-200"
               onClick={() => {
                 addToCart(product); // Adiciona o produto ao carrinho
                 console.log(`Produto ${product.name} adicionado ao carrinho!`);
@@ -106,7 +106,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
             {/* Link para voltar à página inicial */}
             <Link href="/" passHref
-              className="w-full sm:w-auto px-8 py-3 text-center border border-gray-300 text-gray-700 font-semibold rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 transition-colors duration-200"
+              className="w-full sm:w-auto px-8 py-3 text-center border border-gray-300 text-gray-700 uppercase font-semibold rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 transition-colors duration-200"
               aria-label="Voltar para a página inicial"
             >
               Voltar para a página inicial
