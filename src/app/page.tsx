@@ -58,7 +58,7 @@ export default function HomePage() {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`px-5 py-2 rounded-full font-medium transition-colors duration-200 uppercase
+            className={`font-raleway px-5 py-2 rounded-full font-medium transition-colors duration-200 uppercase
               ${selectedCategory === category
                 ? 'bg-blue-600 text-white shadow-md uppercase'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300 uppercase'

@@ -4,6 +4,14 @@ import Link from 'next/link';
 import { CartProvider } from '@/context/CartContext'; // Apenas importa o CartProvider
 import CartIcon from '@/components/CartIcon'; // Importa o CartIcon separado
 import { ReactNode } from 'react';
+import { Raleway } from 'next/font/google'; // Importação da fonte Raleway
+
+// Configure a fonte Raleway usando o Next.js
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-raleway',
+});
 
 export const metadata: Metadata = {
   title: 'Minha Loja Online',
@@ -21,7 +29,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`bg-gray-100 text-gray-900 min-h-screen flex flex-col`}>
+        <body className={`${raleway.variable} bg-gray-100 text-gray-900 min-h-screen flex flex-col`}>
         {/* Envolve toda a aplicação com o CartProvider para que o contexto do carrinho esteja disponível */}
         <CartProvider>
           {/* Cabeçalho da aplicação */}

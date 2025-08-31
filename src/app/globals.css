@@ -1,18 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-/* Definindo a fonte personalizada DIN 1451 */
-@font-face {
-  font-family: 'DIN 1451';
-  src: url('/fonts/DIN1451-36breit.ttf') format('truetype');
-  font-weight: normal;
-  font-style: oblique;
-  text-transform: uppercase;
-}
-
-html, body {
-  /* Altere a fonte padrão para usar a DIN 1451 */
-  font-family: 'DIN 1451', sans-serif;
+@layer base {
+  html, body {
+    font-family: 'Raleway', sans-serif;
+  }
 }

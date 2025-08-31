@@ -9,10 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // Usando a fonte Inter conforme recomendado
-        sans: ['DIN 1451', 'sans-serif'],
+        raleway: ["var(--font-raleway)", "sans-serif"],
       },
-      // Cores personalizadas ou outras extensões de tema podem vir aqui
     },
   },
   plugins: [],
