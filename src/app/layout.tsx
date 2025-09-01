@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
-import { CartProvider } from '@/context/CartContext'; // Apenas importa o CartProvider
-import CartIcon from '@/components/CartIcon'; // Importa o CartIcon separado
+import { CartProvider } from '@/context/CartContext';
+import CartIcon from '@/components/CartIcon';
 import { ReactNode } from 'react';
-import { Raleway } from 'next/font/google'; // Importação da fonte Raleway
+import { Raleway } from 'next/font/google';
 
-// Configure a fonte Raleway usando o Next.js
+// Configuração da fonte Raleway
 const raleway = Raleway({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description: 'Um website de loja de produtos mockados criado com Next.js e TypeScript.',
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,14 +28,15 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-        <body className={`${raleway.variable} bg-gray-100 text-gray-900 min-h-screen flex flex-col`}>
-        {/* Envolve toda a aplicação com o CartProvider para que o contexto do carrinho esteja disponível */}
+      {/* Aplicando a classe da fonte no body */}
+      <body className={`${raleway.variable} font-raleway bg-custom-gray-100 text-custom-gray-900 min-h-screen flex flex-col`}>
         <CartProvider>
-          {/* Cabeçalho da aplicação */}
-          <header className="bg-blue-700 text-white shadow-md p-4 sticky top-0 z-10">
+          {/* Usando cores personalizadas no cabeçalho */}
+          <header className="bg-custom-blue-700 text-white shadow-md p-4 sticky top-0 z-10">
             <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
               <h1 className="text-2xl font-bold uppercase">
-                <Link href="/" className="hover:text-blue-200 transition-colors duration-200 uppercase">
+                {/* Usando cor personalizada no link */}
+                <Link href="/" className="hover:text-custom-blue-200 transition-colors duration-200 uppercase">
                   Minha Loja
                 </Link>
               </h1>
@@ -45,20 +45,18 @@ export default function RootLayout({
                   <li>
                     <Link href="/" className="hover:underline text-lg uppercase">Início</Link>
                   </li>
-                  {/* Adicione mais links de navegação aqui, se necessário */}
                 </ul>
                 <CartIcon />
               </nav>
             </div>
           </header>
 
-          {/* Conteúdo principal da aplicação */}
           <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
             {children}
           </main>
 
-          {/* Rodapé da aplicação */}
-          <footer className="bg-blue-700 text-white p-4 text-center mt-auto shadow-inner uppercase">
+          {/* Usando cores personalizadas no rodapé */}
+          <footer className="bg-custom-blue-700 text-white p-4 text-center mt-auto shadow-inner uppercase">
             <p>&copy; {new Date().getFullYear()} Minha Loja. Todos os direitos reservados.</p>
           </footer>
         </CartProvider>

@@ -17,7 +17,7 @@ export default function CartIcon() {
   const totalItems = getCartTotalItems();
 
   return (
-    <Link href="/cart" passHref className="relative p-2 text-white hover:text-blue-200 transition-colors duration-200" aria-label="Ver carrinho de compras">
+    <Link href="/cart" passHref className="relative p-2 text-de-stijl-yellow hover:text-white transition-colors duration-200" aria-label="Ver carrinho de compras">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-7 w-7 sm:h-8 sm:w-8"
@@ -30,7 +30,7 @@ export default function CartIcon() {
       </svg>
       {/* Renderiza a contagem de itens apenas após a hidratação no cliente */}
       {hasHydrated && totalItems > 0 && (
-        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+        <span className="absolute -top-1 -right-1 bg-de-stijl-red text-de-stijl-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
           {totalItems}
         </span>
       )}

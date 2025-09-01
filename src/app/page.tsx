@@ -34,15 +34,15 @@ export default function HomePage() {
   if (loading) {
     return (
       <div className="text-center py-20">
-        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-700 mx-auto mb-4"></div>
-        <p className="text-lg text-gray-700 uppercase">Carregando produtos...</p>
+        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-de-stijl-red mx-auto mb-4"></div>
+        <p className="text-lg text-de-stijl-white">Carregando produtos...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="text-center py-20 text-red-600 text-xl font-semibold">
+      <div className="text-center py-20 text-de-stijl-red text-xl font-semibold">
         <p>{error}</p>
       </div>
     );
@@ -50,7 +50,7 @@ export default function HomePage() {
 
   return (
     <section className="py-8">
-      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-10 uppercase">Nossos Produtos</h2>
+      <h2 className="text-4xl font-extrabold text-center text-de-stijl-white mb-10 uppercase tracking-widest">Nossos Produtos</h2>
 
       {/* Seletor de Categorias */}
       <div className="mb-8 flex flex-wrap justify-center gap-3">
@@ -58,12 +58,12 @@ export default function HomePage() {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`font-raleway px-5 py-2 rounded-full font-medium transition-colors duration-200 uppercase
+            className={`font-raleway px-5 py-2 border-4 border-de-stijl-black rounded-none font-medium transition-colors duration-200 uppercase
               ${selectedCategory === category
-                ? 'bg-blue-600 text-white shadow-md uppercase'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300 uppercase'
+                ? 'bg-de-stijl-red text-de-stijl-white'
+                : 'bg-de-stijl-white text-de-stijl-black hover:bg-de-stijl-black'
               }
-              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+              focus:outline-none focus:ring-2 focus:ring-de-stijl-red focus:ring-offset-2`}
             aria-pressed={selectedCategory === category}
           >
             {category}
@@ -72,11 +72,11 @@ export default function HomePage() {
       </div>
 
       {products.length === 0 ? (
-        <div className="text-center py-10 text-gray-600 text-xl uppercase">
+        <div className="text-center py-10 text-de-stijl-white text-xl">
           Nenhum produto encontrado nesta categoria.
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

@@ -16,9 +16,9 @@ export default function CartPage() {
   if (cartItems.length === 0) {
     return (
       <div className="text-center py-20">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4 uppercase">Seu carrinho está vazio!</h2>
-        <p className="text-lg text-gray-600 mb-8 uppercase">Parece que você ainda não adicionou nenhum item.</p>
-        <Link href="/" passHref className="px-6 py-3 bg-blue-600 text-white uppercase font-medium rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
+        <h2 className="text-3xl font-bold text-de-stijl-white mb-4 uppercase">Seu carrinho está vazio!</h2>
+        <p className="text-lg text-de-stijl-white mb-8">Parece que você ainda não adicionou nenhum item.</p>
+        <Link href="/" passHref className="px-6 py-3 bg-de-stijl-red text-de-stijl-white font-medium rounded-none shadow-md hover:bg-de-stijl-blue focus:outline-none focus:ring-2 focus:ring-de-stijl-red focus:ring-offset-2 transition-colors duration-200 uppercase">
           Comece a comprar
         </Link>
       </div>
@@ -27,13 +27,13 @@ export default function CartPage() {
 
   return (
     <section className="py-8">
-      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-10 uppercase">Seu Carrinho</h2>
-      <div className="bg-white shadow-lg rounded-xl p-6 sm:p-8 max-w-4xl mx-auto">
+      <h2 className="text-4xl font-extrabold text-center text-de-stijl-white mb-10 uppercase tracking-widest">Seu Carrinho</h2>
+      <div className="bg-de-stijl-white border-4 border-de-stijl-black shadow-lg rounded-none p-6 sm:p-8 max-w-4xl mx-auto">
         {/* Mapeia e exibe cada item do carrinho */}
         {cartItems.map((item) => (
-          <div key={item.id} className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 border-b border-gray-200 py-4 last:border-b-0">
+          <div key={item.id} className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 border-b border-de-stijl-black py-4 last:border-b-0">
             {/* Imagem do produto no carrinho */}
-            <div className="flex-shrink-0 w-24 h-24 relative rounded-md overflow-hidden">
+            <div className="flex-shrink-0 w-24 h-24 relative rounded-none overflow-hidden border border-de-stijl-black">
               <Image
                 src={item.imageUrl}
                 alt={item.name}
@@ -42,15 +42,15 @@ export default function CartPage() {
                 className="rounded-md"
                 unoptimized // Adicionado para desabilitar otimização do Next.js para imagens SVG
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://placehold.co/100x100/CCCCCC/666666?text=Erro`;
+                  (e.target as HTMLImageElement).src = `https://placehold.co/100x100/FDE74C/000000?text=Erro`;
                 }}
               />
             </div>
             {/* Detalhes do produto e categoria */}
             <div className="flex-grow text-center sm:text-left">
-              <h3 className="text-xl font-semibold text-gray-800 uppercase">{item.name}</h3>
-              <p className="text-gray-600 text-sm uppercase">Categoria: {item.category}</p>
-              <p className="text-lg text-blue-600 font-bold uppercase">R$ {(item.price * item.quantity).toFixed(2)}</p>
+              <h3 className="text-xl font-semibold text-de-stijl-black uppercase">{item.name}</h3>
+              <p className="text-de-stijl-black text-sm mb-1">{item.category}</p>
+              <p className="text-lg text-de-stijl-blue font-extrabold uppercase">R$ {(item.price * item.quantity).toFixed(2)}</p>
             </div>
             {/* Controles de quantidade e remoção */}
             <div className="flex items-center space-x-2">
@@ -61,11 +61,11 @@ export default function CartPage() {
                 min="1"
                 value={item.quantity}
                 onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
-                className="w-16 p-2 border border-gray-300 rounded-md text-center focus:ring-blue-500 focus:border-blue-500 uppercase"
+                className="w-16 p-2 border border-de-stijl-black rounded-none text-center bg-de-stijl-white text-de-stijl-black focus:ring-de-stijl-red focus:border-de-stijl-red"
               />
               <button
                 onClick={() => removeFromCart(item.id)}
-                className="uppercase p-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200"
+                className="p-2 bg-de-stijl-red text-de-stijl-white rounded-none hover:bg-de-stijl-blue focus:outline-none focus:ring-2 focus:ring-de-stijl-red focus:ring-offset-2 transition-colors duration-200"
                 aria-label={`Remover ${item.name} do carrinho`}
               >
                 {/* SVG para ícone de lixeira/remover */}
@@ -77,14 +77,14 @@ export default function CartPage() {
           </div>
         ))}
         {/* Exibe o total do carrinho */}
-        <div className="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
-          <span className="text-2xl font-bold text-gray-800 uppercase">Total:</span>
-          <span className="text-2xl font-extrabold text-blue-700 uppercase">R$ {calculateSubtotal().toFixed(2)}</span>
+        <div className="mt-6 pt-4 border-t-4 border-de-stijl-black flex justify-between items-center">
+          <span className="text-2xl font-bold text-de-stijl-black uppercase">Total:</span>
+          <span className="text-2xl font-extrabold text-de-stijl-blue uppercase">R$ {calculateSubtotal().toFixed(2)}</span>
         </div>
         {/* Botão para finalizar compra */}
         <div className="mt-8 text-center">
           <button
-            className="px-8 py-4 uppercase bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 text-xl"
+            className="px-8 py-4 bg-de-stijl-red text-de-stijl-white font-semibold rounded-none shadow-md hover:bg-de-stijl-blue focus:outline-none focus:ring-2 focus:ring-de-stijl-red focus:ring-offset-2 transition-colors duration-200 text-xl uppercase"
             aria-label="Finalizar Compra"
             onClick={() => console.log('Finalizar Compra clicked')}
           >

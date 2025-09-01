@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-@import "tailwindcss";
+/* Importando as diretivas do Tailwind CSS v4 */
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
+/* Definindo a fonte base para o projeto */
 @layer base {
   html, body {
     font-family: 'Raleway', sans-serif;

@@ -45,15 +45,15 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   if (loading) {
     return (
       <div className="text-center py-20">
-        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-700 mx-auto mb-4"></div>
-        <p className="text-lg text-gray-700 uppercase">Carregando detalhes do produto...</p>
+        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-de-stijl-red mx-auto mb-4"></div>
+        <p className="text-lg text-de-stijl-white">Carregando detalhes do produto...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="text-center py-20 text-red-600 text-xl font-semibold uppercase">
+      <div className="text-center py-20 text-de-stijl-red text-xl font-semibold">
         <p>{error}</p>
       </div>
     );
@@ -65,7 +65,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-16rem)] p-4 sm:p-6 lg:p-8">
-      <div className="bg-white shadow-xl rounded-xl p-6 sm:p-8 md:p-10 max-w-4xl w-full flex flex-col md:flex-row gap-6 md:gap-10">
+      <div className="bg-de-stijl-white text-de-stijl-black border-4 border-de-stijl-black p-6 sm:p-8 md:p-10 max-w-4xl w-full flex flex-col md:flex-row gap-6 md:gap-10">
         {/* Imagem do produto */}
         <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-80 lg:h-96 flex-shrink-0">
           <Image
@@ -76,7 +76,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             className="rounded-lg"
             unoptimized // Adicionado para desabilitar otimização do Next.js para imagens SVG
             onError={(e) => {
-              (e.target as HTMLImageElement).src = `https://placehold.co/600x450/CCCCCC/666666?text=Erro+Imagem`;
+              (e.target as HTMLImageElement).src = `https://placehold.co/600x450/FDE74C/000000?text=Erro+Imagem`;
             }}
           />
         </div>
@@ -84,16 +84,16 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         {/* Detalhes do produto */}
         <div className="flex-grow flex flex-col justify-between">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 uppercase">{product.name}</h2>
-            <p className="text-gray-500 text-sm mb-2 uppercase">Categoria: {product.category}</p> {/* Exibe a categoria */}
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 uppercase">{product.description}</p>
-            <p className="text-blue-700 text-2xl sm:text-3xl font-extrabold mb-6 uppercase">R$ {product.price.toFixed(2)}</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-de-stijl-black mb-4 uppercase tracking-wider">{product.name}</h2>
+            <p className="text-de-stijl-black text-sm mb-2">{product.category}</p> {/* Exibe a categoria */}
+            <p className="text-de-stijl-black text-base sm:text-lg leading-relaxed mb-6">{product.description}</p>
+            <p className="text-de-stijl-blue text-2xl sm:text-3xl font-extrabold mb-6 uppercase">R$ {product.price.toFixed(2)}</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             {/* Botão de adicionar ao carrinho */}
             <button
-              className="w-full sm:w-auto px-8 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md uppercase hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors duration-200"
+              className="w-full sm:w-auto px-8 py-3 bg-de-stijl-red text-de-stijl-white font-semibold rounded-none shadow-md hover:bg-de-stijl-blue focus:outline-none focus:ring-2 focus:ring-de-stijl-red focus:ring-offset-2 transition-colors duration-200 uppercase"
               onClick={() => {
                 addToCart(product); // Adiciona o produto ao carrinho
                 console.log(`Produto ${product.name} adicionado ao carrinho!`);
@@ -106,7 +106,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
             {/* Link para voltar à página inicial */}
             <Link href="/" passHref
-              className="w-full sm:w-auto px-8 py-3 text-center border border-gray-300 text-gray-700 uppercase font-semibold rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 transition-colors duration-200"
+              className="w-full sm:w-auto px-8 py-3 text-center border-4 border-de-stijl-black text-de-stijl-black font-semibold rounded-none shadow-sm hover:bg-de-stijl-white focus:outline-none focus:ring-2 focus:ring-de-stijl-red focus:ring-offset-2 transition-colors duration-200 uppercase"
               aria-label="Voltar para a página inicial"
             >
               Voltar para a página inicial
